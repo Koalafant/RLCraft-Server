@@ -29,4 +29,8 @@ USER forge
 USER forge
 WORKDIR /server
 EXPOSE 25565
-ENTRYPOINT /run-server.sh
+RUN /run-server.sh
+
+COPY connection_received.sh /
+RUN chmod +x connection_received.sh
+ENTRYPOINT /connection_received.sh
